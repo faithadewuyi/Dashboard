@@ -30,3 +30,14 @@ div.top {
 h1.time {
   text-align: center;
 }
+div#bitcoin {
+  font-size: 1.3rem;
+}
+
+div#bitcoin-top {
+  display: flex;
+  align-items: center;
+}
+div#bitcoin-top > span {
+  margin-left: 10px;
+}
