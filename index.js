@@ -25,5 +25,27 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         document.getElementById("bitcoin-top").innerHTML =`
         <img src=${data.image.small}/>
         <span>${data.name}</span>`
+
+        document.getElementById("bitcoin").innerHTML =`
+        <p> 🎯: #${data.market_data.current_price.ngn}</p>
+        <p> 👆: #${data.market_data.high_24h.ngn}</p>
+        <p> 👇: #${data.market_data.low_24h.ngn} </p>`
       })
     .catch(err => console.error(err))
+
+    function getCurrentTime(){
+      const present = new Date();
+      let hours = present.getHours();
+      const minutes = present.getMinutes();
+      const amPm = hours >= 12 ? 'PM' : 'AgM'
+      // convert 24hr time to 12-hr
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      function formatNumber(number) {
+        return number < 10 ? '0' + number : number;
+    }
+
+    return `${hours}:${formatNumber(minutes)} ${amPm}`;
+}
+    console.log(getCurrentTime());
+    document.getElementById("time").innerHTML =`<span>${getCurrentTime()}</span>`
