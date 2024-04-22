@@ -27,9 +27,9 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         <span>${data.name}</span>`
 
         document.getElementById("bitcoin").innerHTML =`
-        <p> 🎯: #${data.market_data.current_price.ngn}</p>
-        <p> 👆: #${data.market_data.high_24h.ngn}</p>
-        <p> 👇: #${data.market_data.low_24h.ngn} </p>`
+        <p>🎯: #${data.market_data.current_price.ngn}</p>
+        <p>👆: #${data.market_data.high_24h.ngn}</p>
+        <p>👇: #${data.market_data.low_24h.ngn} </p>`
       })
     .catch(err => console.error(err))
 
@@ -37,7 +37,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
       const present = new Date();
       let hours = present.getHours();
       const minutes = present.getMinutes();
-      const amPm = hours >= 12 ? 'PM' : 'AgM'
+      const amPm = hours >= 12 ? 'PM' : 'AM'
       // convert 24hr time to 12-hr
       hours = hours % 12;
       hours = hours ? hours : 12;
@@ -49,3 +49,8 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 }
     console.log(getCurrentTime());
     document.getElementById("time").innerHTML =`<span>${getCurrentTime()}</span>`
+    setInterval(getCurrentTime, 1000)
+
+navigator.geolocation.getCurrentPosition(position => {
+    console.log(position)
+});
